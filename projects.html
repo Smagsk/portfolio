@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Проекты — Портфолио</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Мои проекты</h1>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="about.html">Обо мне</a>
+      <a href="projects.html" class="active">Проекты</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <button id="theme-toggle">🌙 Темная тема</button>
+  </header>
+
+  <main>
+    <section class="projects">
+      <div class="project-card">
+        <img src="images/project1.jpg" alt="Проект 1">
+        <h3>Сайт-визитка</h3>
+        <p>Мой первый сайт с адаптивной версткой.</p>
+      </div>
+
+      <div class="project-card">
+        <img src="images/project2.jpg" alt="Проект 2">
+        <h3>Лендинг продукта</h3>
+        <p>Красивый лендинг с анимацией и формой обратной связи.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Твоё имя</p>
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      toggleBtn.textContent = savedTheme === 'dark' ? '☀️ Светлая тема' : '🌙 Темная тема';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      toggleBtn.textContent = newTheme === 'dark' ? '☀️ Светлая тема' : '🌙 Темная тема';
+      localStorage.setItem('theme', newTheme);
+    });
+  </script>
+</body>
+</html>
